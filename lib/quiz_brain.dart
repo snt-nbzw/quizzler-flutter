@@ -35,8 +35,9 @@ class QuizBrain {
     if (_questionNumber < _questionBank.length - 1) {
       _questionNumber++;
     }
-    print(_questionNumber);
+    print('_queestionNumber: $_questionNumber');
     print(_questionBank.length);
+    print(isFinished());
   }
 
   String getQuestionText() {
@@ -45,5 +46,21 @@ class QuizBrain {
 
   bool getQuestionAnswer() {
     return _questionBank[_questionNumber].questionAnswer;
+  }
+
+  bool isFinished() {
+    // 12 < 12 は等しいのでtrueになる。
+    bool isFinished;
+    if (_questionNumber < _questionBank.length - 1) {
+      isFinished = false;
+    } else {
+      isFinished = true;
+    }
+    // print(isFinished);
+    return isFinished;
+  }
+
+  void resetQuestion() {
+    _questionNumber = 0;
   }
 }
